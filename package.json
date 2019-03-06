@@ -1,0 +1,52 @@
+{
+  "name": "react-redux-realworld-example-app",
+  "version": "0.1.0",
+  "private": true,
+  "devDependencies": {
+    "@babel/core": "^7.3.4",
+    "@babel/plugin-proposal-class-properties": "^7.3.4",
+    "cross-env": "^5.1.4",
+    "parcel-bundler": "^1.11.0",
+    "react-scripts": "1.1.1"
+  },
+  "dependencies": {
+    "history": "^4.6.3",
+    "immer": "^2.1.1",
+    "marked": "^0.3.6",
+    "prop-types": "^15.5.10",
+    "react": "^16.3.0",
+    "react-dom": "^16.3.0",
+    "react-redux": "^5.0.7",
+    "react-router": "^4.1.2",
+    "react-router-dom": "^4.1.2",
+    "react-router-redux": "^5.0.0-alpha.6",
+    "redux": "^3.6.0",
+    "redux-devtools-extension": "^2.13.2",
+    "redux-logger": "^3.0.1",
+    "superagent": "^3.8.2",
+    "superagent-promise": "^1.1.0",
+    "@material-ui/core": "^3.4.0",
+    "@material-ui/icons": "^3.0.1",
+    "@material-ui/lab": "^3.0.0-alpha.23",
+    "gh-pages": "^2.0.1",
+    "numeral": "^2.0.6",
+    "react-swipeable-views": "^0.13.0",
+    "react-swipeable-views-utils": "^0.13.0",
+    "recharts": "^1.3.5"
+  },
+  "scripts": {
+    "start": "cross-env PORT=4100 react-scripts start",
+    "prebuild": "node scripts/log-time.js",
+    "build": "react-scripts build",
+    "postbuild": "node scripts/log-time.js",
+    "test": "cross-env PORT=4100 react-scripts test --env=jsdom",
+    "build:parcel": "parcel build src/index.html -d dist --no-cache",
+    "build:parcelapi": "NODE_ENV=production node bundle.js",
+    "serve": "parcel src/index.html --no-cache"
+  },
+  "babel": {
+    "plugins": [
+      "@babel/plugin-proposal-class-properties"
+    ]
+  }
+}
