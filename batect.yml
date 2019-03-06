@@ -1,0 +1,39 @@
+containers:
+  build-env:
+    image: node:8
+    volumes:
+      - local: .
+        container: /code
+        options: cached
+    working_directory: /code
+    run_as_current_user:
+      enabled: true
+      home_directory: /home/container-user
+
+tasks:
+  npminstall:
+    description: npm install
+    run:
+      container: build-env
+      command: npm install 
+  build:
+    description: Build the application using react-scripts
+    prerequisites:
+      - npminstall
+    run:
+      container: build-env
+      command: npm run build  
+  build-parcel-cli:
+    description: Build the application using parcel CLI
+    prerequisites:
+      - npminstall
+    run:
+      container: build-env
+      command: npm run build:parcel 
+  build-parcel-api:
+    description: Build the application using parcel API
+    prerequisites:
+      - npminstall
+    run:
+      container: build-env
+      command: npm run build:parcelapi
